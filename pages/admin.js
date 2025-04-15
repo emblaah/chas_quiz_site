@@ -1,8 +1,8 @@
-import {useContext, useState, useRef} from "react";
-import QuizContext from "./context/QuizContext";
+import { useContext, useState, useRef } from "react";
+import QuizContext from "../context/QuizContext";
 
 export default function Admin() {
-  const {questions, addQuestion, removeQuestion, updateQuestion} =
+  const { questions, addQuestion, removeQuestion, updateQuestion } =
     useContext(QuizContext);
 
   // För att hantera inputvärden för att lägga till en fråga
@@ -117,8 +117,7 @@ export default function Admin() {
               value={newCategory}
               onChange={(e) => setNewCategory(e.target.value)}
               className="block w-full p-2 mb-2 border rounded"
-              required
-            >
+              required>
               <option value="">Select a category</option>
               {categories.map((category, index) => (
                 <option key={index} value={category}>
@@ -129,8 +128,7 @@ export default function Admin() {
 
             <button
               type="submit"
-              className="px-4 py-2 mt-5 bg-purple-600 rounded hover:bg-purple-700 text-white"
-            >
+              className="px-4 py-2 mt-5 bg-purple-600 rounded hover:bg-purple-700 text-white">
               Add Question
             </button>
           </form>
@@ -140,8 +138,7 @@ export default function Admin() {
       {/* Section to update an existing question */}
       <div
         ref={updateSectionRef}
-        className="mb-8 max-w-2xl mx-auto bg-b rounded-xl shadow-md overflow-hidden"
-      >
+        className="mb-8 max-w-2xl mx-auto bg-b rounded-xl shadow-md overflow-hidden">
         <div className="border-b bg-gray-50 px-6 py-4 bg-gradient-to-r from-purple-600 to-blue-500">
           <h2 className="text-xl font-semibold text-white">Update Question</h2>
         </div>
@@ -190,8 +187,7 @@ export default function Admin() {
             <select
               value={updateCategory}
               onChange={(e) => setUpdateCategory(e.target.value)}
-              className="block w-full p-2 mb-2 border rounded"
-            >
+              className="block w-full p-2 mb-2 border rounded">
               <option value="">Select a category</option>
               {categories.map((category, index) => (
                 <option key={index} value={category}>
@@ -202,8 +198,7 @@ export default function Admin() {
 
             <button
               type="submit"
-              className="px-4 py-2 mt-5 bg-purple-600 rounded hover:bg-purple-700 text-white"
-            >
+              className="px-4 py-2 mt-5 bg-purple-600 rounded hover:bg-purple-700 text-white">
               Update Question
             </button>
           </form>
@@ -224,8 +219,7 @@ export default function Admin() {
             <div className="px-4">
               <div
                 key={question.id}
-                className="my-4 p-4 border rounded shadow-md bg-white"
-              >
+                className="my-4 p-4 border rounded shadow-md bg-white">
                 <h4 className="font-semibold text-gray-900">
                   {question.question}
                 </h4>
@@ -249,15 +243,13 @@ export default function Admin() {
                         block: "center",
                       });
                     }}
-                    className="px-4 py-2 bg-purple-600 rounded hover:bg-purple-700 mr-2 text-white"
-                  >
+                    className="px-4 py-2 bg-purple-600 rounded hover:bg-purple-700 mr-2 text-white">
                     Edit
                   </button>
 
                   <button
                     onClick={() => handleRemoveQuestion(question.id)}
-                    className="px-4 py-2 bg-red-600 rounded hover:bg-red-700 text-white"
-                  >
+                    className="px-4 py-2 bg-red-600 rounded hover:bg-red-700 text-white">
                     Delete
                   </button>
                 </div>

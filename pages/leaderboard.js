@@ -1,7 +1,7 @@
 import React from "react";
-import {Trophy, Medal, Calendar, ChevronDown} from "lucide-react";
-import {useContext, useState} from "react";
-import QuizContext from "./context/QuizContext";
+import { Trophy, Medal, Calendar, ChevronDown } from "lucide-react";
+import { useContext, useState } from "react";
+import QuizContext from "../context/QuizContext";
 
 const getRankDisplay = (index) => {
   switch (index) {
@@ -21,13 +21,13 @@ const getRankDisplay = (index) => {
 };
 
 export default function Leaderboard() {
-  const {leaderboards} = useContext(QuizContext);
+  const { leaderboards } = useContext(QuizContext);
 
   const sortedCategories = Object.keys(leaderboards)
     .sort()
     .map((category) => [category, leaderboards[category]]);
 
-  const [openCategories, setOpenCategories] = useState({All: true});
+  const [openCategories, setOpenCategories] = useState({ All: true });
 
   const toggleCategory = (category) => {
     setOpenCategories((prev) => ({
@@ -48,14 +48,12 @@ export default function Leaderboard() {
           {sortedCategories.map(([category, entries]) => (
             <div
               key={category}
-              className="bg-b rounded-xl shadow-md overflow-hidden"
-            >
+              className="bg-b rounded-xl shadow-md overflow-hidden">
               <button
                 onClick={() => {
                   toggleCategory(category);
                 }}
-                className=" flex  justify-between border-b w-full bg-gray-50 px-6 py-4 bg-gradient-to-r from-purple-600 to-blue-500 text-transparent text-left"
-              >
+                className=" flex  justify-between border-b w-full bg-gray-50 px-6 py-4 bg-gradient-to-r from-purple-600 to-blue-500 text-transparent text-left">
                 <h2 className="text-xl font-semibold text-white">{category}</h2>
                 <div>
                   <ChevronDown
@@ -72,8 +70,7 @@ export default function Leaderboard() {
                   {entries.map((entry, index) => (
                     <li
                       key={index}
-                      className="hover:bg-gray-50 transition-colors"
-                    >
+                      className="hover:bg-gray-50 transition-colors">
                       <div className="px-6 py-4 flex items-center justify-between">
                         <div className="flex items-center gap-4">
                           <div className="w-8">{getRankDisplay(index + 1)}</div>

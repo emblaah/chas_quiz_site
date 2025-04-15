@@ -1,7 +1,7 @@
-import {useContext, useState} from "react";
-import QuizContext from "./context/QuizContext";
+import { useContext, useState } from "react";
+import QuizContext from "../context/QuizContext";
 import Link from "next/link";
-import {BookOpen, Trophy} from "lucide-react";
+import { BookOpen, Trophy } from "lucide-react";
 
 export default function Home() {
   const {
@@ -52,8 +52,7 @@ export default function Home() {
                 startQuiz(nameInput, category);
                 setNameInput("");
               }
-            }}
-          >
+            }}>
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-gray-700">
                 Select Category
@@ -63,8 +62,7 @@ export default function Home() {
                 value={category}
                 className="w-full p-3 border border-gray-200 rounded-xl bg-gray-50 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all outline-none"
                 defaultValue="All"
-                required
-              >
+                required>
                 <option value="All">All categories</option>
                 <option value="Geography">Geography</option>
                 <option value="Sports">Sports</option>
@@ -90,8 +88,7 @@ export default function Home() {
 
             <button
               type="submit"
-              className="mt-4 w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium py-3 px-4 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-150 focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
-            >
+              className="mt-4 w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium py-3 px-4 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-150 focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
               Start Quiz
             </button>
           </form>
@@ -121,16 +118,14 @@ export default function Home() {
             {answerHistory.map((answer, index) => (
               <div
                 key={index}
-                className="bg-gray-50 p-4 rounded-lg shadow-sm w-full"
-              >
+                className="bg-gray-50 p-4 rounded-lg shadow-sm w-full">
                 <p className="text-lg font-semibold text-gray-900">
                   Q: {answer.question}
                 </p>
                 <p
                   className={`text-lg font-medium ${
                     answer.isCorrect ? "text-green-600" : "text-red-600"
-                  }`}
-                >
+                  }`}>
                   Your answer: {answer.selected}
                 </p>
                 {!answer.isCorrect && (
@@ -144,8 +139,7 @@ export default function Home() {
           <div className="flex gap-6 mt-6">
             <button
               className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg shadow-md hover:shadow-lg font-medium transition-all duration-150 focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
-              onClick={restartQuiz}
-            >
+              onClick={restartQuiz}>
               Play Again
             </button>
             <Link href="/leaderboard">
@@ -200,8 +194,7 @@ export default function Home() {
                     ? "bg-red-100 border-red-500 text-red-700"
                     : "opacity-50"
                   : "border-gray-200 hover:border-purple-500 hover:bg-purple-50 hover:shadow-md"
-              }`}
-              >
+              }`}>
                 <div className="flex items-center gap-3">
                   <span className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 font-medium text-gray-700">
                     {letter}
